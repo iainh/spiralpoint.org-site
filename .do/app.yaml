@@ -1,0 +1,51 @@
+name: spiralpoint
+
+alerts:
+  - rule: DEPLOYMENT_FAILED
+  - rule: DOMAIN_FAILED
+
+domains:
+  - domain: spiralpoint.org
+    type: PRIMARY
+    zone: spiralpoint.org
+    minimum_tls_version: "1.2"
+  - domain: www.spiralpoint.org
+    type: ALIAS
+    zone: spiralpoint.org
+    minimum_tls_version: "1.2"
+
+ingress:
+  rules:
+    - match:
+        authority:
+          exact: www.spiralpoint.org
+      redirect:
+        authority: spiralpoint.org
+        scheme: https
+        redirect_code: 301
+    - match:
+        authority:
+          exact: ${STARTER_DOMAIN}
+      redirect:
+        authority: spiralpoint.org
+        scheme: https
+        redirect_code: 301
+    - match:
+        path:
+          prefix: /
+      component:
+        name: site
+
+static_sites:
+  - name: site
+    environment_slug: html
+    github:
+      repo: iainh/spiralpoint.org-site
+      branch: main
+      deploy_on_push: true
+    build_command: |
+      rm -rf dist
+      mkdir dist
+      cp index.html styles.css dist/
+      cp -R projects dist/
+    output_dir: dist
