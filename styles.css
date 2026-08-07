@@ -113,6 +113,19 @@ h1 {
   padding-block: 1.25rem;
 }
 
+.project-list-item-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-list-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
 .project-list a {
   font-weight: 700;
 }
@@ -148,6 +161,19 @@ h1 {
   font-size: 1.05rem;
 }
 
+.project-heading {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1.5rem;
+}
+
+.project-icon {
+  width: 6rem;
+  height: 6rem;
+  object-fit: contain;
+}
+
 .project-main section {
   margin-top: 3.5rem;
 }
@@ -180,5 +206,15 @@ h2 {
     flex-direction: column;
     gap: 0.25rem;
     text-align: right;
+  }
+
+  .project-heading {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .project-icon {
+    width: 4.5rem;
+    height: 4.5rem;
   }
 }
