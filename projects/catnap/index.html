@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Trait-based REST clients for Rust.">
+    <title>catnap — spiralpoint</title>
+    <link rel="stylesheet" href="../../styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="../../">spiralpoint</a>
+      <nav aria-label="Primary navigation">
+        <a href="../">Projects</a>
+      </nav>
+    </header>
+
+    <main class="project-main">
+      <article>
+        <a class="back-link" href="../">← Projects</a>
+        <h1>catnap</h1>
+        <p class="summary">
+          An asynchronous REST client library for Rust, inspired by Eclipse
+          MicroProfile REST Client. Remote APIs are described as annotated
+          traits and implemented by generated reqwest clients.
+        </p>
+
+        <section>
+          <h2>Get it</h2>
+          <p>The crate is published on crates.io. Source is available on GitHub.</p>
+          <ul class="project-links">
+            <li><a href="https://crates.io/crates/catnap">Crate</a></li>
+            <li><a href="https://github.com/iainh/catnap">Source</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Notes</h2>
+          <p>
+            The original trait remains the public interface. A procedural macro
+            generates its client and rejects invalid HTTP declarations at
+            compile time, including unmatched paths and bodies on GET requests.
+          </p>
+          <p>
+            Request and response filters, error mappers, query encoding, and
+            optional XML support are built in. Raw responses remain streamable;
+            typed responses are buffered for filtering and deserialization.
+          </p>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

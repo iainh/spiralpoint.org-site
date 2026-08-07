@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="MicroProfile-style configuration for Rust.">
+    <title>mp-config — spiralpoint</title>
+    <link rel="stylesheet" href="../../styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="../../">spiralpoint</a>
+      <nav aria-label="Primary navigation">
+        <a href="../">Projects</a>
+      </nav>
+    </header>
+
+    <main class="project-main">
+      <article>
+        <a class="back-link" href="../">← Projects</a>
+        <h1>mp-config</h1>
+        <p class="summary">
+          A Rust configuration library inspired by Eclipse MicroProfile Config.
+          It combines ordered sources, profiles, property expansion, and typed
+          conversion without a container or injection runtime.
+        </p>
+
+        <section>
+          <h2>Get it</h2>
+          <p>
+            The library is currently source-only and can be used as a Git
+            dependency. It is not published on crates.io.
+          </p>
+          <ul class="project-links">
+            <li><a href="https://github.com/iainh/mp-config">Source</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Notes</h2>
+          <p>
+            Values can come from properties files, TOML, environment variables,
+            or custom sources. Ordinals and profile-specific keys determine
+            precedence, and resolved values retain their source information.
+          </p>
+          <p>
+            A derive macro builds typed, nested configuration groups. The
+            diagnostic API can also explain which candidate won and which
+            values it shadowed.
+          </p>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

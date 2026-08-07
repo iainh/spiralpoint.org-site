@@ -90,12 +90,84 @@ h1 {
   font-size: 1.05rem;
 }
 
+.project-section {
+  margin: 3rem 0 0;
+}
+
+.project-section + .project-section {
+  margin-top: 3.5rem;
+}
+
+.project-section h2 {
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.project-list {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-list li {
+  padding-block: 1.25rem;
+}
+
+.project-list a {
+  font-weight: 700;
+}
+
+.project-list p {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+}
+
 .links {
   margin: 3rem 0 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.5rem;
+  list-style: none;
+}
+
+.project-main {
+  padding-block: 4rem 7rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 3rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.project-main .summary {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.project-main section {
+  margin-top: 3.5rem;
+}
+
+h2 {
+  margin: 0 0 0.75rem;
+  font: inherit;
+  font-weight: 700;
+}
+
+.project-main section p {
+  margin: 0 0 1rem;
+}
+
+.project-links {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   list-style: none;
 }
 

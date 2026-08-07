@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Nucleotide, a native graphical editor built on Helix.">
+    <title>nucleotide — spiralpoint</title>
+    <link rel="stylesheet" href="../../styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="../../">spiralpoint</a>
+      <nav aria-label="Primary navigation">
+        <a href="../">Projects</a>
+      </nav>
+    </header>
+
+    <main class="project-main">
+      <article>
+        <a class="back-link" href="../">← Projects</a>
+        <h1>nucleotide</h1>
+        <p class="summary">
+          A graphical code editor that puts Helix's modal editing engine in a
+          native desktop interface. It includes workspaces, a file tree, an
+          integrated terminal, and remote development over SSH and WSL.
+        </p>
+
+        <section>
+          <h2>Get it</h2>
+          <p>
+            Packaged releases are available for Linux, macOS, and Windows.
+            Windows builds are portable rather than installed.
+          </p>
+          <ul class="project-links">
+            <li><a href="https://github.com/iainh/nucleotide/releases">Releases</a></li>
+            <li><a href="https://github.com/iainh/nucleotide">Source</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Notes</h2>
+          <p>
+            Nucleotide uses Helix's core crates directly rather than wrapping
+            the terminal editor. The interface is built with GPUI, and its
+            terminal uses Ghostty's terminal state machine.
+          </p>
+          <p>
+            Remote workspaces run file operations, language servers, terminals,
+            and other processes through a helper on the remote machine. Remote
+            targets are currently limited to Linux.
+          </p>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

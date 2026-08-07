@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Zigonaut, a native terminal emulator for Windows.">
+    <title>zigonaut — spiralpoint</title>
+    <link rel="stylesheet" href="../../styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="../../">spiralpoint</a>
+      <nav aria-label="Primary navigation">
+        <a href="../">Projects</a>
+      </nav>
+    </header>
+
+    <main class="project-main">
+      <article>
+        <a class="back-link" href="../">← Projects</a>
+        <h1>zigonaut</h1>
+        <p class="summary">
+          A native terminal emulator for Windows, written mostly in Zig. It
+          runs PowerShell, Command Prompt, WSL, and custom commands through
+          ConPTY, with tabs and split panes.
+        </p>
+
+        <section>
+          <h2>Get it</h2>
+          <p>Public downloads aren't available yet.</p>
+        </section>
+
+        <section>
+          <h2>Notes</h2>
+          <p>
+            Zig manages the application and terminal sessions, with a small
+            C++/WinRT bridge for WinUI 3. Rendering uses Direct3D, Direct2D,
+            and DirectWrite; terminal parsing comes from Ghostty.
+          </p>
+          <p>
+            It ships matching ConPTY components alongside the application
+            instead of relying only on the system copy. This avoids output
+            corruption seen when resizing terminal rows and columns.
+          </p>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
