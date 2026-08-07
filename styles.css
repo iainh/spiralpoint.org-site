@@ -1,10 +1,26 @@
+@font-face {
+  font-family: "Sevka Screen";
+  src: url("projects/sevka-screen/fonts/SevkaScreen-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sevka Screen";
+  src: url("projects/sevka-screen/fonts/SevkaScreen-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --ink: #20201e;
   --muted: #6c6a64;
   --paper: #f7f6f2;
   --line: #d8d6ce;
   color-scheme: light;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-family: "Sevka Screen", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   font-synthesis: none;
 }
 
