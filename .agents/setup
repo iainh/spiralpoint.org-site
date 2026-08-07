@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Keep shared Amp preferences and repository identity consistent across orbs.
+# Pin the helper so changes to its default branch cannot alter setup unexpectedly.
+common_setup_url="https://raw.githubusercontent.com/iainh/amp-orbs/fcb5e318e59d6374081a45bc7769acf01cee0dd2/orb-setup"
+temporary_setup="$(mktemp)"
+trap 'rm -f "$temporary_setup"' EXIT
+
+curl --fail --silent --show-error --location \
+  "$common_setup_url" \
+  --output "$temporary_setup"
+
+bash "$temporary_setup"

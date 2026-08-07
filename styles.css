@@ -1,0 +1,112 @@
+:root {
+  --ink: #20201e;
+  --muted: #6c6a64;
+  --paper: #f7f6f2;
+  --line: #d8d6ce;
+  color-scheme: light;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: var(--muted);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+a:hover {
+  text-decoration-color: var(--ink);
+}
+
+a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.site-header,
+main {
+  width: min(100% - 2rem, 42rem);
+  margin-inline: auto;
+}
+
+.site-header {
+  padding-block: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.wordmark {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+main {
+  flex: 1;
+}
+
+.intro,
+.projects-main {
+  padding-block: clamp(5rem, 18vh, 9rem);
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font: inherit;
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.intro > p,
+.page-intro > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.links {
+  margin: 3rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  list-style: none;
+}
+
+@media (max-width: 30rem) {
+  .site-header {
+    align-items: flex-start;
+  }
+
+  .site-header nav {
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: right;
+  }
+}
