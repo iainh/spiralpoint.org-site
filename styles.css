@@ -88,10 +88,14 @@ main {
 }
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   padding-block: 1.5rem;
   display: flex;
   justify-content: space-between;
   gap: 2rem;
+  background: var(--paper);
   border-bottom: 1px solid var(--line);
 }
 
