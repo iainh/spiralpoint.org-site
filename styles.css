@@ -46,6 +46,11 @@
   box-sizing: border-box;
 }
 
+::selection {
+  background: #ffae42;
+  color: #20201e;
+}
+
 html {
   background: var(--paper);
   color: var(--ink);
