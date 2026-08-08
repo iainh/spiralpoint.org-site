@@ -91,6 +91,20 @@ main {
   padding-block: clamp(5rem, 18vh, 9rem);
 }
 
+.intro {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1.5rem;
+}
+
+.profile-image {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 h1 {
   margin: 0 0 1rem;
   font: inherit;
@@ -99,7 +113,7 @@ h1 {
   letter-spacing: -0.04em;
 }
 
-.intro > p,
+.intro-copy > p,
 .page-intro > p {
   margin: 0;
   color: var(--muted);
@@ -232,5 +246,15 @@ h2 {
   .project-icon {
     width: 4.5rem;
     height: 4.5rem;
+  }
+
+  .intro {
+    grid-template-columns: 5rem minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .profile-image {
+    width: 5rem;
+    height: 5rem;
   }
 }
