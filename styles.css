@@ -189,6 +189,11 @@ h1 {
   gap: 1rem;
 }
 
+.project-list-item-with-icon > div {
+  min-width: 0;
+  flex: 1;
+}
+
 .project-list-icon {
   width: 3.5rem;
   height: 3.5rem;
@@ -202,6 +207,23 @@ h1 {
 
 .project-list a {
   font-weight: 700;
+}
+
+.project-list-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.license-badge {
+  padding: 0.05rem 0.4rem;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 0.25rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.5;
 }
 
 .project-list p {
