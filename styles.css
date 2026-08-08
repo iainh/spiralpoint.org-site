@@ -101,8 +101,21 @@ main {
 }
 
 .wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-weight: 700;
   text-decoration: none;
+}
+
+.wordmark::before {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: 0 0 auto;
+  background: radial-gradient(circle at 50% 50%, #ffae42 0 1px, currentColor 1px);
+  content: "";
+  -webkit-mask: url("projects/site-assets/spiralpoint-logo.png") center / contain no-repeat;
+  mask: url("projects/site-assets/spiralpoint-logo.png") center / contain no-repeat;
 }
 
 main {
