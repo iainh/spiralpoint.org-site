@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Small, explicit, and configurable LDAP connection pooling for asynchronous Rust.">
+    <title>bb8-ldap — spiralpoint</title>
+    <script src="../site-assets/theme.js"></script>
+    <link rel="stylesheet" href="../../styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="../../">spiralpoint</a>
+      <nav aria-label="Primary navigation">
+        <a href="../">Projects</a>
+      </nav>
+    </header>
+
+    <main class="project-main">
+      <article>
+        <a class="back-link" href="../">← Projects</a>
+        <h1>bb8-ldap</h1>
+        <p class="summary">
+          Small, explicit, and configurable pooling of reusable asynchronous
+          LDAP connections through bb8 and ldap3.
+        </p>
+
+        <section>
+          <h2>Get it</h2>
+          <p>Version 0.4.1 is available on crates.io.</p>
+          <ul class="project-links">
+            <li><a href="https://crates.io/crates/bb8-ldap">Crate</a></li>
+            <li><a href="https://docs.rs/bb8-ldap">Documentation</a></li>
+            <li><a href="https://github.com/iainh/bb8-ldap">Source</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Notes</h2>
+          <p>
+            The connection manager validates URLs up front, optionally binds with
+            credentials, and checks pooled connections with a configurable,
+            timeout-bounded LDAP search.
+          </p>
+          <p>
+            Connection and validation timeouts are independent. Use StartTLS over
+            <code>ldap://</code> with a selectable Rustls or native TLS backend;
+            <code>ldapi://</code> is also supported.
+          </p>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
