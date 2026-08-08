@@ -46,6 +46,7 @@ static_sites:
     build_command: |
       rm -rf dist
       mkdir dist
-      cp index.html styles.css dist/
+      cp index.html profile.webp styles.css theme.js dist/
+      cp -R licenses dist/
       cp -R projects dist/
     output_dir: dist
