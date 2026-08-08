@@ -1,3 +1,4 @@
+// Sun and Moon icons: Lucide Icons, ISC/MIT licensed.
 (() => {
   const storageKey = "color-scheme";
   const root = document.documentElement;
