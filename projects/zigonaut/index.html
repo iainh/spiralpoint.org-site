@@ -24,9 +24,8 @@
           <div>
             <h1>zigonaut</h1>
             <p class="summary">
-              A native terminal emulator for Windows, written mostly in Zig. It
-              runs PowerShell, Command Prompt, WSL, and custom commands through
-              ConPTY, with tabs and split panes.
+              A native Windows terminal written mostly in Zig, with ConPTY,
+              tabs, and split panes.
             </p>
           </div>
         </header>
@@ -39,14 +38,12 @@
         <section>
           <h2>Notes</h2>
           <p>
-            Zig manages the application and terminal sessions, with a small
-            C++/WinRT bridge for WinUI 3. Rendering uses Direct3D, Direct2D,
-            and DirectWrite; terminal parsing comes from Ghostty.
+            Zig manages the application and sessions; a small C++/WinRT bridge
+            connects WinUI 3. Rendering uses Direct3D, Direct2D, and DirectWrite.
           </p>
           <p>
-            It ships matching ConPTY components alongside the application
-            instead of relying only on the system copy. This avoids output
-            corruption seen when resizing terminal rows and columns.
+            Ghostty handles terminal parsing. Matching ConPTY components ship
+            with the application to avoid corruption during resize.
           </p>
         </section>
       </article>

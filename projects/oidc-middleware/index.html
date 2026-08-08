@@ -21,16 +21,15 @@
         <a class="back-link" href="../">← Projects</a>
         <h1>oidc-middleware</h1>
         <p class="summary">
-          Experimental OpenID Connect authentication and authorization for
-          Axum. Tower layers cover bearer-token APIs and browser login, session,
-          refresh, and logout flows.
+          Experimental OpenID Connect middleware for Axum APIs and browser
+          sessions.
         </p>
 
         <section>
           <h2>Get it</h2>
           <p>
-            Source and version tags are available on GitHub. The library is not
-            currently published on crates.io.
+            Source and version tags are on GitHub. It is not published on
+            crates.io.
           </p>
           <ul class="project-links">
             <li><a href="https://github.com/iainh/oidc-middleware">Source</a></li>
@@ -40,14 +39,12 @@
         <section>
           <h2>Notes</h2>
           <p>
-            Token validation can use static keys, refreshable JWKS, introspection,
-            UserInfo, or a custom validator. Requests can select among multiple
-            OIDC tenants by path, issuer, or header.
+            Validate tokens with static keys, refreshable JWKS, introspection,
+            UserInfo, or custom code. Select tenants by path, issuer, or header.
           </p>
           <p>
-            Browser flows use encrypted state cookies, nonce-bound ID tokens,
-            coordinated refreshes, bounded parsing, and explicit forwarded-header
-            trust. The project is not security-audited.
+            Browser flows include login, sessions, refresh, and logout. The
+            project has not been security audited.
           </p>
         </section>
       </article>

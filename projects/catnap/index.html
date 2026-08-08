@@ -24,9 +24,8 @@
           <div>
             <h1>catnap</h1>
             <p class="summary">
-              An asynchronous REST client library for Rust, inspired by Eclipse
-              MicroProfile REST Client. Remote APIs are described as annotated
-              traits and implemented by generated reqwest clients.
+              Asynchronous REST clients generated from annotated Rust traits,
+              inspired by Eclipse MicroProfile REST Client.
             </p>
           </div>
         </header>
@@ -34,8 +33,8 @@
         <section>
           <h2>Get it</h2>
           <p>
-            The library is currently source-only and can be used as a Git
-            dependency. It is not published on crates.io.
+            Available from source as a Git dependency. It is not published on
+            crates.io.
           </p>
           <ul class="project-links">
             <li><a href="https://github.com/iainh/catnap">Source</a></li>
@@ -45,14 +44,12 @@
         <section>
           <h2>Notes</h2>
           <p>
-            The original trait remains the public interface. A procedural macro
-            generates its client and rejects invalid HTTP declarations at
-            compile time, including unmatched paths and bodies on GET requests.
+            The trait remains the public interface. A procedural macro generates
+            the client and rejects invalid HTTP declarations at compile time.
           </p>
           <p>
-            Request and response filters, error mappers, query encoding, and
-            optional XML support are built in. Raw responses remain streamable;
-            typed responses are buffered for filtering and deserialization.
+            Includes request and response filters, error mapping, query encoding,
+            and optional XML support. Raw responses remain streamable.
           </p>
         </section>
       </article>

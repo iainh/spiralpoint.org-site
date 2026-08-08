@@ -21,16 +21,15 @@
         <a class="back-link" href="../">← Projects</a>
         <h1>mp-config</h1>
         <p class="summary">
-          A Rust configuration library inspired by Eclipse MicroProfile Config.
-          It combines ordered sources, profiles, property expansion, and typed
-          conversion without a container or injection runtime.
+          Ordered sources, profiles, property expansion, and typed configuration
+          for Rust, inspired by Eclipse MicroProfile Config.
         </p>
 
         <section>
           <h2>Get it</h2>
           <p>
-            The library is currently source-only and can be used as a Git
-            dependency. It is not published on crates.io.
+            Available from source as a Git dependency. It is not published on
+            crates.io.
           </p>
           <ul class="project-links">
             <li><a href="https://github.com/iainh/mp-config">Source</a></li>
@@ -40,14 +39,12 @@
         <section>
           <h2>Notes</h2>
           <p>
-            Values can come from properties files, TOML, environment variables,
-            or custom sources. Ordinals and profile-specific keys determine
-            precedence, and resolved values retain their source information.
+            Values may come from properties files, TOML, environment variables,
+            or custom sources. Ordinals and profiles determine precedence.
           </p>
           <p>
-            A derive macro builds typed, nested configuration groups. The
-            diagnostic API can also explain which candidate won and which
-            values it shadowed.
+            A derive macro builds typed, nested groups. Diagnostics show which
+            source won and which values it shadowed.
           </p>
         </section>
       </article>

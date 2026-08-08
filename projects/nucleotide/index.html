@@ -24,9 +24,8 @@
           <div>
             <h1>nucleotide</h1>
             <p class="summary">
-              A graphical code editor that puts Helix's modal editing engine in a
-              native desktop interface. It includes workspaces, a file tree, an
-              integrated terminal, and remote development over SSH and WSL.
+              Helix's modal editing engine in a native desktop interface, with
+              workspaces, a file tree, a terminal, and remote development.
             </p>
           </div>
         </header>
@@ -34,8 +33,7 @@
         <section>
           <h2>Get it</h2>
           <p>
-            Packaged releases are available for Linux, macOS, and Windows.
-            Windows builds are portable rather than installed.
+            Packaged for Linux, macOS, and Windows. Windows builds are portable.
           </p>
           <ul class="project-links">
             <li><a href="https://github.com/iainh/nucleotide/releases">Releases</a></li>
@@ -46,14 +44,12 @@
         <section>
           <h2>Notes</h2>
           <p>
-            Nucleotide uses Helix's core crates directly rather than wrapping
-            the terminal editor. The interface is built with GPUI, and its
-            terminal uses Ghostty's terminal state machine.
+            Nucleotide uses Helix's core crates directly. The interface is built
+            with GPUI; its terminal uses Ghostty's terminal state machine.
           </p>
           <p>
-            Remote workspaces run file operations, language servers, terminals,
-            and other processes through a helper on the remote machine. Remote
-            targets are currently limited to Linux.
+            Remote workspaces use a helper for files, language servers, terminals,
+            and processes over SSH or WSL. Remote targets must run Linux.
           </p>
         </section>
       </article>
