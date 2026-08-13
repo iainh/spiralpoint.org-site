@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Ergonomic, type-safe REST clients for Rust with compile-time validation.">
+    <meta name="description" content="Ergonomic, type-safe REST clients for Rust with compile-time validation and explicit HTTP behaviour.">
     <title>catnap — spiralpoint</title>
     <script src="../site-assets/theme.js"></script>
     <link rel="stylesheet" href="../../styles.css">
@@ -25,31 +25,30 @@
             <h1>catnap</h1>
             <p class="summary">
               Ergonomic, type-safe REST clients generated from Rust traits, with
-              compile-time validation and explicit, extensible HTTP behavior.
+              compile-time validation and explicit, extensible HTTP behaviour.
             </p>
           </div>
         </header>
 
         <section>
-          <h2>Get it</h2>
+          <h2>Availability</h2>
           <p>
-            Available from source as a Git dependency. It is not published on
-            crates.io.
+            Use catnap from source as a Git dependency. It isn't published on crates.io.
           </p>
           <ul class="project-links">
-            <li><a href="https://github.com/iainh/catnap">Source</a></li>
+            <li><a href="https://github.com/iainh/catnap">Source code</a></li>
           </ul>
         </section>
 
         <section>
-          <h2>Notes</h2>
+          <h2>Details</h2>
           <p>
             The trait remains the public interface. A procedural macro generates
             the client and rejects invalid HTTP declarations at compile time.
           </p>
           <p>
-            Includes request and response filters, error mapping, query encoding,
-            and optional XML support. Raw responses remain streamable.
+            It includes request and response filters, error mapping, query encoding
+            and optional XML support. You can still stream raw responses.
           </p>
         </section>
       </article>

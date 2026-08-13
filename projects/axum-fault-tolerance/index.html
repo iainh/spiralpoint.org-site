@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Composable, predictable, and lightweight fault-tolerance policies for asynchronous Rust.">
+    <meta name="description" content="Lightweight, composable and predictable fault-tolerance policies for asynchronous Rust.">
     <title>axum-fault-tolerance — spiralpoint</title>
     <script src="../site-assets/theme.js"></script>
     <link rel="stylesheet" href="../../styles.css">
@@ -21,29 +21,29 @@
         <a class="back-link" href="../">← Projects</a>
         <h1>axum-fault-tolerance</h1>
         <p class="summary">
-          Composable, predictable, and lightweight fault-tolerance policies for
-          asynchronous Rust, with precise typed failures and an optional Tower layer.
+          Lightweight, composable fault-tolerance policies for asynchronous Rust,
+          with predictable behaviour, precise, typed failures and an optional Tower layer.
         </p>
 
         <section>
-          <h2>Get it</h2>
+          <h2>Availability</h2>
           <p>
-            Available from source as a Git or local path dependency. It is not
-            published on crates.io.
+            Use axum-fault-tolerance from source as a Git or local path dependency.
+            It isn't published on crates.io.
           </p>
           <ul class="project-links">
-            <li><a href="https://github.com/iainh/axum-fault-tolerance">Source</a></li>
+            <li><a href="https://github.com/iainh/axum-fault-tolerance">Source code</a></li>
           </ul>
         </section>
 
         <section>
-          <h2>Notes</h2>
+          <h2>Details</h2>
           <p>
             Policies are Rust values or attributes on async methods. The core
             is independent of Axum; an optional Tower layer adapts it to services.
           </p>
           <p>
-            Error classifiers control retries, circuit breakers, and fallbacks
+            Error classifiers control retries, circuit breakers and fallbacks
             independently. Bulkheads reject work instead of queuing it.
           </p>
         </section>
