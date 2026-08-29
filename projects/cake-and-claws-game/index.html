@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#56354d" />
+    <title>Cakes &amp; Claws Bakery</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="brand" aria-label="Cakes and Claws Bakery">
+        <div class="brand__paw" aria-hidden="true">♥</div>
+        <div>
+          <p class="brand__kicker">Poppy &amp; Miso's</p>
+          <h1>CAKES <span>&amp;</span> CLAWS</h1>
+          <p class="brand__sub">BAKERY</p>
+        </div>
+        <div class="brand__paw brand__paw--right" aria-hidden="true">♥</div>
+      </header>
+
+      <section id="game-frame" class="game-frame game-frame--modal" aria-label="Cakes and Claws Bakery game">
+        <canvas id="game" width="960" height="540" aria-label="Bakery game canvas"></canvas>
+
+        <div id="start-screen" class="overlay">
+          <div class="card card--welcome">
+            <div class="cat-portraits" aria-hidden="true">
+              <span class="portrait portrait--poppy"><i class="portrait__face"></i><i class="portrait__accessory"></i></span>
+              <span class="portrait portrait--miso"><i class="portrait__face"></i><i class="portrait__accessory"></i></span>
+            </div>
+            <p class="eyebrow">A CO-OP SOLO BAKING DASH</p>
+            <h2>Morning, bakers!</h2>
+            <p>
+              Switch between Poppy and Miso, gather the right ingredients,
+              bake each recipe, and serve <strong>8 hungry customers</strong>
+              before closing time. The bakery closes early if
+              <strong>3 customers leave hungry</strong>.
+            </p>
+            <div class="recipe-list">
+              <span>🧁 Flour + Berry</span>
+              <span>🍪 Flour + Cocoa</span>
+              <span>🍰 Flour + Berry + Cocoa</span>
+              <span>✨ Afternoon: decorate to order</span>
+            </div>
+            <button id="start-button" class="pixel-button">OPEN THE BAKERY</button>
+            <p class="controls-copy">Move: WASD / Arrows · Action: Space / E · Swap cat: Q</p>
+          </div>
+        </div>
+
+        <div id="end-screen" class="overlay overlay--hidden" aria-live="polite">
+          <div class="card card--end">
+            <p id="end-eyebrow" class="eyebrow">SHOP CLOSED</p>
+            <h2 id="end-title">Sweet success!</h2>
+            <div id="end-stars" class="end-stars" aria-label="Three stars">★★★</div>
+            <p id="end-copy"></p>
+            <button id="restart-button" class="pixel-button">BAKE AGAIN</button>
+          </div>
+        </div>
+
+        <div id="pause-screen" class="overlay overlay--hidden" aria-live="polite">
+          <div class="card card--end">
+            <p class="eyebrow">BAKERY PAUSED</p>
+            <h2>Taking a breather</h2>
+            <p>The clock and customer patience are stopped.</p>
+            <button id="resume-button" class="pixel-button">RESUME BAKING</button>
+          </div>
+        </div>
+
+        <div id="toast" class="toast" role="status" aria-live="polite"></div>
+      </section>
+
+      <section class="touch-controls" aria-label="Touch controls">
+        <div class="utility-pad">
+          <button id="pause-button" aria-label="Pause game">PAUSE</button>
+          <button id="sound-button" aria-label="Turn sound off" aria-pressed="false">SOUND ON</button>
+        </div>
+        <div class="d-pad">
+          <button data-control="up" aria-label="Move up">▲</button>
+          <button data-control="left" aria-label="Move left">◀</button>
+          <button data-control="down" aria-label="Move down">▼</button>
+          <button data-control="right" aria-label="Move right">▶</button>
+        </div>
+        <div class="action-pad">
+          <button data-control="swap" class="control-swap">SWAP</button>
+          <button data-control="action" class="control-action">ACTION</button>
+        </div>
+      </section>
+
+      <footer>
+        <span>♡ Freshly baked every day ♡</span>
+        <span class="desktop-hint">Q switch · Space interact · P pause · M sound · R restart</span>
+      </footer>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
