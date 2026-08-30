@@ -389,8 +389,11 @@
     const stars = won ? (state.missed === 0 && state.time > 40 ? 3 : state.missed < 2 ? 2 : 1) : 0;
     document.getElementById("end-eyebrow").textContent = won ? "ALL CUSTOMERS FED" : "SHOP CLOSED";
     document.getElementById("end-title").textContent = won ? "Sweet success!" : "Oh, crumbs!";
-    document.getElementById("end-stars").textContent = stars ? "★".repeat(stars) + "☆".repeat(3 - stars) : "☆☆☆";
-    document.getElementById("end-stars").setAttribute("aria-label", `${stars} out of 3 stars`);
+    const endStars = document.getElementById("end-stars");
+    endStars.innerHTML = Array.from({ length: 3 }, (_, index) =>
+      `<span class="end-star${index < stars ? "" : " end-star--empty"}">★</span>`
+    ).join("");
+    endStars.setAttribute("aria-label", `${stars} out of 3 stars`);
     const result = won
       ? `Poppy and Miso served ${state.served} treats and scored ${state.score} points!`
       : reason === "missed"
@@ -1010,13 +1013,26 @@
     // Hair accessory differentiates the sisters at sprite scale.
     ctx.fillStyle = cat.accent;
     if (cat.name === "Poppy") {
-      ctx.fillRect(x - 27, y - 37, 12, 10);
-      ctx.fillRect(x - 13, y - 37, 12, 10);
+      ctx.fillStyle = COLORS.inkDark;
+      ctx.fillRect(x - 31, y - 48, 13, 12);
+      ctx.fillRect(x - 17, y - 45, 13, 12);
+      ctx.fillRect(x - 21, y - 46, 8, 11);
+      ctx.fillStyle = cat.accent;
+      ctx.fillRect(x - 28, y - 45, 8, 7);
+      ctx.fillRect(x - 15, y - 42, 8, 7);
       ctx.fillStyle = COLORS.yellow;
-      ctx.fillRect(x - 16, y - 35, 6, 6);
+      ctx.fillRect(x - 19, y - 43, 5, 6);
     } else {
-      ctx.fillRect(x + 10, y - 37, 18, 7);
-      ctx.fillRect(x + 16, y - 43, 6, 19);
+      ctx.fillStyle = COLORS.inkDark;
+      ctx.fillRect(x + 15, y - 49, 8, 22);
+      ctx.fillRect(x + 8, y - 42, 22, 8);
+      ctx.fillStyle = cat.accent;
+      ctx.fillRect(x + 17, y - 47, 4, 7);
+      ctx.fillRect(x + 17, y - 34, 4, 5);
+      ctx.fillRect(x + 10, y - 40, 7, 4);
+      ctx.fillRect(x + 21, y - 40, 7, 4);
+      ctx.fillStyle = COLORS.yellow;
+      ctx.fillRect(x + 17, y - 40, 4, 4);
     }
     ctx.fillStyle = COLORS.inkDark;
     ctx.fillRect(x - 19, y + 33 + step, 14, 8 - step);
@@ -1032,7 +1048,9 @@
     panel(14, 14, 185, 76);
     pixelText(RUSH_LEVELS[state.rush].label, 28, 36, 11);
     pixelText(`${state.served} / ${state.goal}`, 28, 68, 27);
-    pixelText("♥".repeat(Math.max(0, 3 - state.missed)) + "♡".repeat(state.missed), 107, 68, 22);
+    for (let index = 0; index < 3; index += 1) {
+      drawPixelHeart(110 + index * 21, 54, index < 3 - state.missed);
+    }
 
     panel(761, 14, 185, 76);
     pixelText("CLOSING TIME", 777, 36, 13);
@@ -1081,6 +1099,16 @@
     } else {
       ctx.fillRect(x - 8, y - 9, 16, 18);
     }
+  }
+
+  function drawPixelHeart(x, y, filled) {
+    const rows = ["0110110", "1111111", "1111111", "0111110", "0011100", "0001000"];
+    ctx.fillStyle = filled ? COLORS.pinkDark : "#d8c7c4";
+    rows.forEach((row, rowIndex) => {
+      [...row].forEach((pixel, columnIndex) => {
+        if (pixel === "1") ctx.fillRect(x + columnIndex * 2, y + rowIndex * 2, 2, 2);
+      });
+    });
   }
 
   function drawTreat(type, x, y, scale = 1, decoration = null) {

@@ -10,17 +10,27 @@
   <body>
     <main class="page-shell">
       <header class="brand" aria-label="Cakes and Claws Bakery">
-        <div class="brand__paw" aria-hidden="true">♥</div>
+        <div class="brand__paw" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
         <div>
           <p class="brand__kicker">Poppy &amp; Miso's</p>
           <h1>CAKES <span>&amp;</span> CLAWS</h1>
           <p class="brand__sub">BAKERY</p>
         </div>
-        <div class="brand__paw brand__paw--right" aria-hidden="true">♥</div>
+        <div class="brand__paw brand__paw--right" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
       </header>
 
       <section id="game-frame" class="game-frame game-frame--modal" aria-label="Cakes and Claws Bakery game">
         <canvas id="game" width="960" height="540" aria-label="Bakery game canvas"></canvas>
+
+        <div class="orientation-screen" role="status">
+          <span class="orientation-screen__phone" aria-hidden="true">↻</span>
+          <strong>Rotate to play</strong>
+          <span>Landscape mode keeps the bakery labels readable.</span>
+        </div>
 
         <div id="start-screen" class="overlay">
           <div class="card card--welcome">
@@ -51,7 +61,9 @@
           <div class="card card--end">
             <p id="end-eyebrow" class="eyebrow">SHOP CLOSED</p>
             <h2 id="end-title">Sweet success!</h2>
-            <div id="end-stars" class="end-stars" aria-label="Three stars">★★★</div>
+            <div id="end-stars" class="end-stars" role="img" aria-label="Three stars">
+              <span class="end-star">★</span><span class="end-star">★</span><span class="end-star">★</span>
+            </div>
             <p id="end-copy"></p>
             <button id="restart-button" class="pixel-button">BAKE AGAIN</button>
           </div>
@@ -87,7 +99,7 @@
       </section>
 
       <footer>
-        <span>♡ Freshly baked every day ♡</span>
+        <span><span class="footer-heart" aria-hidden="true">♥</span> Freshly baked every day <span class="footer-heart" aria-hidden="true">♥</span></span>
         <span class="desktop-hint">Q switch · Space interact · P pause · M sound · R restart</span>
       </footer>
     </main>
