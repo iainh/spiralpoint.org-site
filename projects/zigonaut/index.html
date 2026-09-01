@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Zigonaut, a fast, lightweight, feature-rich native terminal designed for Windows.">
+    <meta name="description" content="Zigonaut, a native Windows terminal written mostly in Zig, with a WinUI 3 shell, GPU rendering and Ghostty's VT engine.">
     <title>zigonaut — spiralpoint</title>
     <script src="../site-assets/theme.js"></script>
     <link rel="stylesheet" href="../../styles.css">
@@ -24,15 +24,22 @@
           <div>
             <h1>zigonaut</h1>
             <p class="summary">
-              A fast, lightweight, feature-rich native terminal written mostly in
-              Zig, with deep, resilient Windows integration.
+              A native terminal for Windows, written mostly in Zig. It pairs
+              Ghostty's VT engine with a WinUI 3 shell and a Direct3D renderer,
+              and works with Windows rather than abstracting it away.
             </p>
           </div>
         </header>
 
         <section>
           <h2>Availability</h2>
-          <p>Source is available on GitHub. Public downloads aren't available yet.</p>
+          <p>
+            Source is on GitHub. Public downloads aren't available yet. It
+            targets Windows 10 (1809 or later) and Windows 11 on x64 and ARM64;
+            building it needs Zig 0.16 and Visual Studio 2022 with the C++
+            desktop workload. A macOS client built on AppKit and Metal is in
+            progress but isn't at feature parity.
+          </p>
           <ul class="project-links">
             <li><a href="https://github.com/iainh/zigonaut">Source code</a></li>
           </ul>
@@ -41,12 +48,23 @@
         <section>
           <h2>Details</h2>
           <p>
-            Zig manages the application and sessions; a small C++/WinRT bridge
-            connects WinUI 3. Rendering uses Direct3D, Direct2D and DirectWrite.
+            Zig owns the application model, sessions and terminal state; a small
+            C++/WinRT bridge exposes that to a WinUI 3 shell over a C ABI. Each
+            pane runs its own ConPTY process, and matching ConPTY components ship
+            with the application so resizing doesn't corrupt output. Rendering
+            uses Direct3D 11, Direct2D and DirectWrite, with a GDI fallback.
           </p>
           <p>
-            Ghostty handles terminal parsing. Matching ConPTY components ship
-            with the application to avoid corruption during resize.
+            Ghostty handles terminal parsing. On top of that: tabs and split
+            panes with draggable dividers, scrollback search, shell integration
+            for PowerShell, zsh, Bash and fish, OSC 7 working-directory tracking,
+            OSC 133 prompt navigation, Kitty graphics, clickable links, native
+            IME and per-monitor DPI.
+          </p>
+          <p>
+            Windows integration covers taskbar progress and notifications from
+            the shell, Mica and acrylic backdrops, light, dark and system modes
+            with eight bundled themes, and guarded clipboard writes over OSC 52.
           </p>
         </section>
       </article>

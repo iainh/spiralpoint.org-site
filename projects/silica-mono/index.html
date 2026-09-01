@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Silica Mono, a crisp, practical coding font for modern displays.">
+    <meta name="description" content="Silica Mono, a coding font that pairs Geist Mono with Latin letters and programming symbols traced from SGI's Screen 15.">
     <title>silica-mono — spiralpoint</title>
     <script src="../site-assets/theme.js"></script>
     <link rel="stylesheet" href="../../styles.css">
@@ -21,14 +21,17 @@
         <a class="back-link" href="../">← Projects</a>
         <h1>silica-mono</h1>
         <p class="summary">
-          A crisp, practical coding font that combines Geist Mono's modern
-          foundation with compact, legible forms for low-DPI and HiDPI displays.
+          A coding font that starts from Geist Mono and swaps in Latin letters
+          and programming symbols traced from SGI's Screen 15 bitmaps. The result
+          is compact, stays legible at small sizes on low-DPI screens and scales
+          cleanly on HiDPI ones.
         </p>
 
         <section>
           <h2>Availability</h2>
           <p>
-            TTF files in regular, medium and bold, with matching italics.
+            Six static TTF files: regular, medium and bold, each with a matching
+            italic. All six are hinted with ttfautohint.
           </p>
           <ul class="project-links">
             <li><a href="https://github.com/iainh/silica-mono">Font files and source code</a></li>
@@ -38,12 +41,19 @@
         <section>
           <h2>Details</h2>
           <p>
-            Screen 15's bitmap cells become scalable outlines. Rectilinear
-            glyphs keep their square corners.
+            Screen 15's bitmap cells are traced into fixed-pitch TrueType
+            outlines. Rectilinear glyphs keep their square corners, while exposed
+            outer corners on rounded letters are softened slightly. Italics are a
+            12° shear of the uprights. Medium is the regular bitmap emboldened;
+            bold comes from SGI's Screen Bold 15.
           </p>
           <p>
-            It includes logic, set, proof and arrow symbols for code. The six
-            static fonts are autohinted.
+            Where Screen 15 has no glyph, Geist Mono's stays. The build also
+            generates Latin Extended letters from Screen-style bases and accents,
+            and adds 29 programming symbols (arrows, quantifiers, set and logic
+            operators, proof turnstiles and check marks) drawn on the Screen grid
+            after JetBrains Mono. Silica Mono is released under the SIL Open Font
+            License 1.1.
           </p>
         </section>
       </article>

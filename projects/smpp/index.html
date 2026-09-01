@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Type-safe, specification-focused and performance-conscious SMPP for asynchronous Rust.">
+    <meta name="description" content="SMPP 3.4 and 5.0 for asynchronous Rust, from a typed wire codec up to a Tokio client.">
     <title>smpp — spiralpoint</title>
     <script src="../site-assets/theme.js"></script>
     <link rel="stylesheet" href="../../styles.css">
@@ -21,15 +21,16 @@
         <a class="back-link" href="../">← Projects</a>
         <h1>smpp</h1>
         <p class="summary">
-          Type-safe, specification-focused and performance-conscious SMPP 3.4 and
-          5.0 for asynchronous Rust, from high-level clients to protocol types.
+          SMPP 3.4 and 5.0 for asynchronous Rust, from a typed wire codec up to a
+          Tokio client. Strong typing and validation enforce the specification,
+          so malformed PDUs are caught before they reach the wire.
         </p>
 
         <section>
           <h2>Availability</h2>
           <p>
             Use smpp from source as a Git dependency. The crate with the same name
-            on crates.io is unrelated.
+            on crates.io is an unrelated project.
           </p>
           <ul class="project-links">
             <li><a href="https://github.com/iainh/smpp">Source code</a></li>
@@ -39,15 +40,24 @@
         <section>
           <h2>Details</h2>
           <p>
-            Strongly typed fields and comprehensive validation enforce SMPP wire
-            rules. The allocation-conscious codec supports the complete 3.4 PDU
-            set and 5.0 broadcast operations.
+            The codec covers all 26 SMPP 3.4 PDU types plus the 5.0 broadcast
+            operations, with TLV optional parameters, GSM 7-bit, UCS-2 and
+            Latin-1 encodings and typed enumerations. Each PDU encodes and
+            decodes itself rather than passing through one monolithic frame
+            parser. Headers, lengths, sequence numbers and status codes are
+            validated, and PDUs are capped at 64 KiB.
           </p>
           <p>
-            The asynchronous client includes version negotiation, keep-alives,
-            structured tracing and congestion-aware flow control. The README
-            declares the project MIT licensed; its referenced license file is
-            currently absent from the repository.
+            The Tokio client handles bind and unbind for the transmitter,
+            receiver and transceiver roles, negotiates the protocol version from
+            the server's capabilities, tracks <code>enquire_link</code>
+            keep-alives, emits structured tracing and applies congestion-aware
+            rate limiting. A simplified <code>SmsMessage</code> API sits alongside
+            full <code>SubmitSm</code> control.
+          </p>
+          <p>
+            The README declares the project MIT licensed, but the licence file it
+            references isn't in the repository yet.
           </p>
         </section>
       </article>

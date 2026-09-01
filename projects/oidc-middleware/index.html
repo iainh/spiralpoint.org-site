@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Standards-compliant OpenID Connect middleware for Axum, secure by default and easy to use.">
+    <meta name="description" content="OpenID Connect authentication for Axum APIs and browser sessions, configured with Quarkus-style properties.">
     <title>oidc-middleware — spiralpoint</title>
     <script src="../site-assets/theme.js"></script>
     <link rel="stylesheet" href="../../styles.css">
@@ -21,15 +21,16 @@
         <a class="back-link" href="../">← Projects</a>
         <h1>oidc-middleware</h1>
         <p class="summary">
-          Standards-compliant OpenID Connect for Axum APIs and browser sessions,
-          secure by default and built with explicit authorization boundaries.
+          OpenID Connect for Axum APIs and browser sessions, configured with
+          Quarkus-style <code>oidc.*</code> properties. Authentication is a Tower
+          layer; authorization is attached visibly to routes and fails closed.
         </p>
 
         <section>
           <h2>Availability</h2>
           <p>
             Source code and version tags are on GitHub. The project isn't
-            published on crates.io.
+            published on crates.io. Requires Rust 1.88 or later.
           </p>
           <ul class="project-links">
             <li><a href="https://github.com/iainh/oidc-middleware">Source code</a></li>
@@ -39,12 +40,23 @@
         <section>
           <h2>Details</h2>
           <p>
-            Validate tokens with static keys, refreshable JWKS, introspection,
-            UserInfo or custom code. Select tenants by path, issuer or header.
+            Tokens can be validated against a static key, a static or
+            refreshable JWKS, an introspection endpoint, UserInfo or your own
+            validator. JWT checks cover audience, issuer, token type, subject,
+            required claims, age and algorithm, and role mapping understands
+            Keycloak-style resource roles. Multi-tenant setups pick a tenant by
+            request path, header or token issuer.
           </p>
           <p>
-            Browser flows include login, sessions, refresh and logout. The
-            project has not been security audited.
+            The <code>web-app</code> feature adds the authorization-code flow
+            with encrypted state cookies, nonce-bound ID token validation,
+            refresh and RP-initiated logout. Certificate-bound tokens and JWE are
+            rejected at startup rather than silently ignored.
+          </p>
+          <p>
+            This is experimental and hasn't been security audited. Review it,
+            its dependencies and your provider's behaviour before relying on it
+            in production.
           </p>
         </section>
       </article>

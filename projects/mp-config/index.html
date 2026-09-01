@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Deterministic, typed layered configuration with explainable results for Rust.">
+    <meta name="description" content="Layered, typed configuration for Rust modelled on MicroProfile Config, with explicit precedence, profiles and value provenance.">
     <title>mp-config — spiralpoint</title>
     <script src="../site-assets/theme.js"></script>
     <link rel="stylesheet" href="../../styles.css">
@@ -21,15 +21,16 @@
         <a class="back-link" href="../">← Projects</a>
         <h1>mp-config</h1>
         <p class="summary">
-          Deterministic, typed layered configuration for Rust, with explicit
-          precedence, profiles and value provenance.
+          Layered, typed configuration for Rust modelled on MicroProfile Config:
+          explicit source precedence, profiles, expressions and diagnostics that
+          show exactly where each value came from.
         </p>
 
         <section>
           <h2>Availability</h2>
           <p>
             Use mp-config from source as a Git dependency. It isn't published on
-            crates.io.
+            crates.io. Requires Rust 1.85 or later.
           </p>
           <ul class="project-links">
             <li><a href="https://github.com/iainh/mp-config">Source code</a></li>
@@ -39,12 +40,24 @@
         <section>
           <h2>Details</h2>
           <p>
-            Values can come from properties files, TOML, environment variables
-            or custom sources. Ordinals and profiles determine precedence.
+            Values come from Java-style properties files, TOML, environment
+            variables with relaxed name mapping, or your own sources. Every
+            source has an ordinal; higher ordinals win, and an empty value
+            deletes a property. Profile-specific keys use
+            <code>%profile.name</code>, and values can reference each other with
+            <code>${name}</code> or <code>${name:default}</code>.
           </p>
           <p>
-            A derive macro builds typed, nested groups. Diagnostics show which
-            source won and which values it shadowed.
+            A <code>ConfigProperties</code> derive builds typed, nested structs
+            with prefixes, defaults and renaming, and converts strings to Rust
+            types, including durations such as <code>250ms</code> or
+            <code>5m</code>.
+          </p>
+          <p>
+            <code>Config::explain</code> lists every candidate for a key: which
+            source offered it, its ordinal and profile, and whether it was
+            selected, shadowed or deleted. Precedence surprises are quick to
+            track down.
           </p>
         </section>
       </article>

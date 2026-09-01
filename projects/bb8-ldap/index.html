@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Small, explicit and configurable LDAP connection pooling for asynchronous Rust.">
+    <meta name="description" content="A bb8 connection manager for ldap3, so asynchronous Rust services can pool and validate LDAP connections.">
     <title>bb8-ldap — spiralpoint</title>
     <script src="../site-assets/theme.js"></script>
     <link rel="stylesheet" href="../../styles.css">
@@ -21,8 +21,9 @@
         <a class="back-link" href="../">← Projects</a>
         <h1>bb8-ldap</h1>
         <p class="summary">
-          Small, explicit and configurable pools of reusable asynchronous LDAP
-          connections, built with bb8 and ldap3.
+          A bb8 connection manager for ldap3, so asynchronous Rust services can
+          pool and reuse LDAP connections instead of opening a new one for every
+          bind or lookup.
         </p>
 
         <section>
@@ -38,14 +39,17 @@
         <section>
           <h2>Details</h2>
           <p>
-            The connection manager validates URLs first, optionally binds with
-            credentials and checks pooled connections with a configurable,
-            timeout-bounded LDAP search.
+            The manager validates the URL up front, opens the connection,
+            optionally performs a simple bind and hands it to the pool. Before a
+            pooled connection is reused, it's checked with a configurable LDAP
+            search; the default is a one-second root DSE lookup. Connection and
+            validation timeouts are set separately, and bb8 controls pool sizing.
           </p>
           <p>
-            Connection and validation timeouts are independent. Use StartTLS over
-            <code>ldap://</code> with a selectable Rustls or native TLS backend;
-            <code>ldapi://</code> is also supported.
+            TLS is StartTLS over <code>ldap://</code>, with Rustls (aws-lc-rs or
+            ring) or native TLS selected by feature flag. Implicit
+            <code>ldaps://</code> isn't supported; Unix sockets over
+            <code>ldapi://</code> are.
           </p>
         </section>
       </article>

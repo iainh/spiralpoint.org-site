@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Ergonomic, type-safe REST clients for Rust with compile-time validation and explicit HTTP behaviour.">
+    <meta name="description" content="REST clients generated from annotated Rust traits, in the style of MicroProfile REST Client, with compile-time checking.">
     <title>catnap — spiralpoint</title>
     <script src="../site-assets/theme.js"></script>
     <link rel="stylesheet" href="../../styles.css">
@@ -19,21 +19,19 @@
     <main class="project-main">
       <article>
         <a class="back-link" href="../">← Projects</a>
-        <header class="project-heading">
-          <img class="project-icon catnap-icon" src="icon.webp" width="512" height="512" alt="">
-          <div>
-            <h1>catnap</h1>
-            <p class="summary">
-              Ergonomic, type-safe REST clients generated from Rust traits, with
-              compile-time validation and explicit, extensible HTTP behaviour.
-            </p>
-          </div>
-        </header>
+        <h1>catnap</h1>
+        <p class="summary">
+          REST clients generated from annotated Rust traits, in the style of
+          MicroProfile REST Client. Invalid HTTP declarations fail at compile
+          time, and the generated client's behaviour is explicit and easy to
+          extend.
+        </p>
 
         <section>
           <h2>Availability</h2>
           <p>
-            Use catnap from source as a Git dependency. It isn't published on crates.io.
+            Use catnap from source as a Git dependency. The crate with the same
+            name on crates.io is an unrelated project. Requires Rust 1.88 or later.
           </p>
           <ul class="project-links">
             <li><a href="https://github.com/iainh/catnap">Source code</a></li>
@@ -43,12 +41,23 @@
         <section>
           <h2>Details</h2>
           <p>
-            The trait remains the public interface. A procedural macro generates
-            the client and rejects invalid HTTP declarations at compile time.
+            You describe an API as a trait and annotate its methods with paths,
+            verbs, headers and media types. <code>#[rest_client]</code> leaves the
+            trait alone and generates a cloneable client that implements it on
+            top of reqwest, rejecting invalid declarations at compile time.
           </p>
           <p>
-            It includes request and response filters, error mapping, query encoding
-            and optional XML support. You can still stream raw responses.
+            It covers GET, POST, PUT, PATCH, DELETE, OPTIONS and HEAD;
+            percent-encoded path variables; query parameters in several
+            encodings, including maps; default headers and Basic auth; and JSON
+            by default, with plain text, status-only, raw streaming responses and
+            optional XML. Ordered request and response filters and exception
+            mappers let you hook in, and tracing output redacts authorization and
+            cookie headers.
+          </p>
+          <p>
+            Base URL, redirects, proxy, timeouts and query style can come from a
+            builder or from MicroProfile-style environment variables.
           </p>
         </section>
       </article>

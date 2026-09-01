@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Lightweight, composable and predictable fault-tolerance policies for asynchronous Rust.">
+    <meta name="description" content="Retries, timeouts, circuit breakers, bulkheads and fallbacks for asynchronous Rust, modelled on MicroProfile Fault Tolerance.">
     <title>axum-fault-tolerance — spiralpoint</title>
     <script src="../site-assets/theme.js"></script>
     <link rel="stylesheet" href="../../styles.css">
@@ -21,15 +21,17 @@
         <a class="back-link" href="../">← Projects</a>
         <h1>axum-fault-tolerance</h1>
         <p class="summary">
-          Lightweight, composable fault-tolerance policies for asynchronous Rust,
-          with predictable behaviour, precise, typed failures and an optional Tower layer.
+          Retries, timeouts, circuit breakers, bulkheads and fallbacks for
+          asynchronous Rust, modelled on MicroProfile Fault Tolerance. Policies
+          are plain Rust values with typed failures, and an optional Tower layer
+          applies them to Axum services.
         </p>
 
         <section>
           <h2>Availability</h2>
           <p>
             Use axum-fault-tolerance from source as a Git or local path dependency.
-            It isn't published on crates.io.
+            It isn't published on crates.io. Requires Rust 1.85 or later.
           </p>
           <ul class="project-links">
             <li><a href="https://github.com/iainh/axum-fault-tolerance">Source code</a></li>
@@ -39,12 +41,25 @@
         <section>
           <h2>Details</h2>
           <p>
-            Policies are Rust values or attributes on async methods. The core
-            is independent of Axum; an optional Tower layer adapts it to services.
+            It keeps MicroProfile's policy vocabulary but drops the Java
+            annotations and interceptors. Policies are built with builders and
+            wrap any async call: handlers, repositories, service clients or queue
+            consumers. If you'd rather annotate, <code>#[fault_tolerant]</code>
+            offers the same policies as method attributes. The core doesn't
+            depend on Axum; the Tower layer is a separate, optional adapter.
           </p>
           <p>
-            Error classifiers control retries, circuit breakers and fallbacks
-            independently. Bulkheads reject work instead of queuing it.
+            Retries take a maximum attempt count, delay, jitter and a cap on total
+            duration. Circuit breakers share state across callers, open on a
+            request-volume threshold and failure ratio, then half-open after a
+            delay. Bulkheads are semaphore-style concurrency limits that reject
+            excess work instead of queuing it. A failure classifier decides, per
+            error, whether to retry, fall back or count against the breaker.
+          </p>
+          <p>
+            Optional features load policy settings through
+            <a href="../mp-config/">mp-config</a> and expose circuit-breaker
+            state as an <a href="../axum-health/">axum-health</a> readiness check.
           </p>
         </section>
       </article>

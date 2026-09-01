@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Sevka Screen, a faithful, compact and highly legible outline adaptation of SGI's Screen 15.">
+    <meta name="description" content="Sevka Screen, an outline interpretation of SGI IRIX's Screen 15 bitmap font, built reproducibly from Iosevka.">
     <title>sevka-screen — spiralpoint</title>
     <script src="../site-assets/theme.js"></script>
     <link rel="stylesheet" href="../../styles.css">
@@ -21,19 +21,21 @@
         <a class="back-link" href="../">← Projects</a>
         <h1>sevka-screen</h1>
         <p class="summary">
-          A faithful, compact and highly legible outline adaptation of SGI IRIX's
-          Screen 15 bitmap font, reproducibly built from Iosevka.
+          An outline interpretation of SGI IRIX's Screen 15 bitmap font, built
+          reproducibly from Iosevka. It keeps the wide, vertically compact feel
+          of the original 8×15-pixel cell without being a pixel-for-pixel trace.
         </p>
 
         <section>
           <h2>Availability</h2>
           <p>
-            TTF files for macOS and Windows in regular, medium and bold, with
-            matching italics.
+            TTF files for macOS and Windows in regular, medium and bold, each
+            with a matching italic. A Latin-only WOFF2 package covers the web.
           </p>
           <ul class="project-links">
             <li><a href="https://github.com/iainh/sevka-screen/tree/main/assets/macOS">macOS fonts</a></li>
             <li><a href="https://github.com/iainh/sevka-screen/tree/main/assets/win">Windows fonts</a></li>
+            <li><a href="https://github.com/iainh/sevka-screen/tree/main/assets/web">Web fonts</a></li>
             <li><a href="https://github.com/iainh/sevka-screen">Source code</a></li>
           </ul>
         </section>
@@ -41,12 +43,24 @@
         <section>
           <h2>Details</h2>
           <p>
-            Glyphs and vertical metrics follow the original 8×15-pixel cell.
-            Programming ligatures are disabled.
+            The build starts from Iosevka's <code>ss11</code> preset, the X
+            Window fixed forms, then picks letterforms to match Screen 15: a
+            based 1, closed 4, double-storey a, single-storey g and curled y.
+            Vertical metrics follow the original cell, programming ligatures are
+            off, and arrowheads are enlarged so they stay readable at small sizes.
           </p>
           <p>
-            macOS files are unhinted; Windows files use TrueType autohinting.
-            The two packages should not be installed together.
+            <code>./scripts/build.sh</code> downloads pinned Node.js and Iosevka
+            versions into a local cache and builds all six styles, so a fresh
+            checkout reproduces the shipped files without installing anything
+            system-wide.
+          </p>
+          <p>
+            The macOS files are unhinted for CoreText. The Windows files are the
+            same outlines run through ttfautohint for cleaner grid fitting at
+            small sizes. Both packages share family metadata, so install one or
+            the other, not both. Sevka Screen is released under the SIL Open
+            Font License 1.1 and isn't an official SGI or Iosevka release.
           </p>
         </section>
       </article>

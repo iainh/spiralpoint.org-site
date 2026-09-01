@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Nucleotide, a polished, responsive native Helix editor that makes remote development feel local.">
+    <meta name="description" content="Nucleotide, a native graphical front end for the Helix editor with an integrated terminal and remote workspaces over SSH and WSL.">
     <title>nucleotide — spiralpoint</title>
     <script src="../site-assets/theme.js"></script>
     <link rel="stylesheet" href="../../styles.css">
@@ -24,8 +24,9 @@
           <div>
             <h1>nucleotide</h1>
             <p class="summary">
-              A polished, responsive native editor that preserves Helix's modal
-              editing semantics while making remote development feel local.
+              A native graphical front end for the Helix editor. It keeps Helix's
+              modal editing exactly as it is, and adds a file tree, an integrated
+              terminal and remote workspaces that feel like local ones.
             </p>
           </div>
         </header>
@@ -33,7 +34,9 @@
         <section>
           <h2>Availability</h2>
           <p>
-            Packaged for Linux, macOS and Windows. Windows builds are portable.
+            Releases are packaged for Linux, macOS and Windows. The Windows build
+            is portable: extract the archive into a writable folder and run it.
+            There's no installer or MSI.
           </p>
           <ul class="project-links">
             <li><a href="https://github.com/iainh/nucleotide/releases">Releases</a></li>
@@ -44,12 +47,24 @@
         <section>
           <h2>Details</h2>
           <p>
-            Nucleotide uses Helix's core crates directly. The interface is built
-            with GPUI; its terminal uses Ghostty's terminal state machine.
+            Nucleotide uses Helix's own crates (<code>helix-core</code>,
+            <code>helix-view</code>, <code>helix-lsp</code> and friends) rather
+            than reimplementing the editor, so keybindings, commands and language
+            support match upstream Helix. The interface is built with GPUI, the
+            GPU-accelerated UI framework from Zed. The integrated terminal uses
+            Ghostty's terminal state machine.
           </p>
           <p>
-            Remote workspaces use a helper for files, language servers, terminals
-            and processes over SSH or WSL. Remote targets must run Linux.
+            Around the editor you get split views, LSP completion and
+            diagnostics, the usual Helix pickers for files, buffers and commands,
+            and a file tree that shows version-control status and loads
+            directories lazily.
+          </p>
+          <p>
+            Remote workspaces run a small helper on the far end that handles
+            files, language servers, terminals and processes over SSH or WSL.
+            Remote targets must run Linux. Nucleotide is licensed under the
+            MPL-2.0, the same licence as Helix.
           </p>
         </section>
       </article>

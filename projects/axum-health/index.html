@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Standards-based, composable health probes with predictable deployment behaviour for Axum.">
+    <meta name="description" content="Liveness, readiness and startup probes for Axum that follow the MicroProfile Health response format.">
     <title>axum-health — spiralpoint</title>
     <script src="../site-assets/theme.js"></script>
     <link rel="stylesheet" href="../../styles.css">
@@ -21,15 +21,17 @@
         <a class="back-link" href="../">← Projects</a>
         <h1>axum-health</h1>
         <p class="summary">
-          Standards-based, composable liveness, readiness and startup probes for
-          Axum, with predictable behaviour under failure and load.
+          Liveness, readiness and startup probes for Axum that follow the
+          MicroProfile Health response format, so Kubernetes and load balancers
+          get predictable answers under failure and load.
         </p>
 
         <section>
           <h2>Availability</h2>
           <p>
             Use axum-health from source as a Git dependency. The crate with the
-            same name on crates.io is unrelated.
+            same name on crates.io is an unrelated project. Requires Rust 1.85 or
+            later.
           </p>
           <ul class="project-links">
             <li><a href="https://github.com/iainh/axum-health">Source code</a></li>
@@ -39,12 +41,23 @@
         <section>
           <h2>Details</h2>
           <p>
-            Checks run concurrently and results remain in registration order.
-            Failures become named <code>DOWN</code> entries with a 503 response.
+            <code>Health::builder()</code> collects named async checks, and
+            <code>Health::router()</code> serves them at <code>/health</code>,
+            <code>/health/live</code>, <code>/health/ready</code> and
+            <code>/health/started</code>, or at a path of your choosing. Checks
+            run concurrently and results come back in registration order.
           </p>
           <p>
-            Register checks as closures or generate them from methods with an
-            attribute macro. Diagnostics may include structured data.
+            The response is JSON with an aggregate <code>UP</code> or
+            <code>DOWN</code> status and a <code>checks</code> array. Everything
+            up returns 200; any failing check returns 503, and an error becomes a
+            named <code>DOWN</code> entry with the message in its data.
+          </p>
+          <p>
+            Register checks as closures, or put <code>#[liveness]</code>,
+            <code>#[readiness]</code> or <code>#[startup]</code> on methods of a
+            struct that already owns your database pool, REST client or LDAP
+            connection. Each check can attach structured diagnostic data.
           </p>
         </section>
       </article>
